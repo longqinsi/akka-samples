@@ -23,3 +23,5 @@ To run this example, type `sbt "runMain sample.persistence.SnapshotExample"`. Wi
 [PersistentActorFailureExample.scala](src/main/scala/sample/persistence/PersistentActorFailureExample.scala) shows how a persistent actor can throw an exception, restart and restore the state by replaying the events.
 
 To run this example, type `sbt "runMain sample.persistence.PersistentActorFailureExample"`.
+
+Start a Cassandra server by running `sbt "run cassandra"`.
