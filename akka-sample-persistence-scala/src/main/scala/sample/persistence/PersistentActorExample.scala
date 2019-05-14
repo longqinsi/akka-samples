@@ -21,7 +21,7 @@ class ExamplePersistentActor extends PersistentActor {
   def updateState(event: Evt): Unit =
     state = state.updated(event)
 
-  def numEvents =
+  def numEvents: Int =
     state.size
 
   val receiveRecover: Receive = {
@@ -31,7 +31,7 @@ class ExamplePersistentActor extends PersistentActor {
 
   val receiveCommand: Receive = {
     case Cmd(data) =>
-      persist(Evt(s"${data}-${numEvents}")) { event =>
+      persist(Evt(s"$data-$numEvents")) { event =>
         updateState(event)
         context.system.eventStream.publish(event)
       }

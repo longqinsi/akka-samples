@@ -6,7 +6,7 @@ import akka.persistence._
 object SnapshotExample extends App {
   final case class ExampleState(received: List[String] = Nil) {
     def updated(s: String): ExampleState = copy(s :: received)
-    override def toString = received.reverse.toString
+    override def toString: String = received.reverse.toString
   }
 
   class ExamplePersistentActor extends PersistentActor {
